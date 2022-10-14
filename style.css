@@ -36,6 +36,9 @@ body {
     margin: 1em 30% 1em 30%;
     padding-top: 2em;
     padding-bottom: 2em;
+    -webkit-box-shadow: 13px 9px 37px 7px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 13px 9px 37px 7px rgba(66, 68, 90, 1);
+    box-shadow: 13px 9px 37px 7px rgba(66, 68, 90, 1);
 }
 
 h1 {
@@ -57,13 +60,33 @@ h1 {
     min-height: 50vh;
 }
 
+.playground > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playground > div > div {
+    margin: 1em 2em;
+}
+
 .choice-wrapper {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: rgba(250, 235, 215, 0);
+}
+
+.choice-wrapper > div {
+    background-color: rgba(250, 235, 215, );
 }
 
 .choice-wrapper > div > button{
     margin: 0.5em;
     border-radius: 20px;
+    background-color: rgba(250, 235, 215, 0);
+}
+
+.choice-wrapper>div>button:hover {
+    background-color: lightgray;
 }
