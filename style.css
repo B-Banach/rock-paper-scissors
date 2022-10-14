@@ -1,0 +1,69 @@
+:root {
+ --1-1: 1;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    padding: 0px;
+    margin: 0px;
+}
+
+img {
+    width: 10em;
+    display: block;
+}
+
+body {
+    background-image: url(/img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain, cover;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    background-color: rgba(250, 235, 215, 0.75);
+    border-radius: 20px;
+    margin: 1em 30% 1em 20%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+h1 {
+
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-container > div {
+    margin: 1em 2em;
+    font-size: 2em;
+}
+
+.playground {
+    min-height: 50vh;
+}
+
+.choice-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.choice-wrapper > div > button{
+    margin: 0.5em;
+    border-radius: 20px;
+}
