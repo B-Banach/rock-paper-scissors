@@ -41,10 +41,6 @@ body {
     box-shadow: 13px 9px 37px 7px rgba(66, 68, 90, 1);
 }
 
-h1 {
-
-}
-
 .score-container {
     display: flex;
     border-bottom: black dotted 1px;
@@ -91,7 +87,7 @@ h1 {
     background-color: lightgray;
 }
 
-.text {
+.text-winner {
     color: green;
     font-size: 3em;
     margin: 0.5em 0em;
