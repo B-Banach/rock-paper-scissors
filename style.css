@@ -43,7 +43,7 @@ body {
 
 .score-container {
     display: flex;
-    border-bottom: black dotted 1px;
+    border-bottom: darkgrey solid 1px;
     gap: 4em;
 }
 
@@ -71,6 +71,7 @@ body {
     justify-content: space-around;
     align-items: center;
     background-color: rgba(250, 235, 215, 0);
+    border-top: darkgrey 1px solid;
 }
 
 .choice-wrapper > div {

@@ -7,16 +7,28 @@ const computerChoiceImg = document.querySelector("#computer-img");
 const rockBtn = document.querySelector(".rock-btn");
 const paperBtn = document.querySelector(".paper-btn");
 const scissorsBtn = document.querySelector(".scissors-btn");
+const choiceWrapper = document.querySelector(".choice-wrapper");
+const reset = document.querySelector(".reset");
+const resetBtn = document.querySelector(".reset-btn");
 
 // ## Variables:
 
 let playerScore = 0;
 let computerScore = 0;
 let playerChoice;
+let gameWinner;
 
 // ## Code:
 
-rockBtn.addEventListener ('click', (e) => {
+// Initial game setup:
+
+playerChoiceImg.src = "/img/question-player.png";
+computerChoiceImg.src = "/img/question-computer.png";
+textWinner.innerText = "Let's play!";
+textWinner.style.color = "black";
+reset.style.display = "none";
+
+rockBtn.addEventListener ('click', () => {
     playerChoice = 'rock';
     let winner = playRound(playerChoice);
 
@@ -31,6 +43,16 @@ rockBtn.addEventListener ('click', (e) => {
     }
 
     updateScore();
+    
+    if (playerScore === 5) {
+        gameWinner = "player"
+        GameOver(gameWinner);
+    }
+    if (computerScore === 5) {
+        gameWinner = "computer"
+        GameOver(gameWinner);
+    }
+        
 });
 
 paperBtn.addEventListener ('click', () => {
@@ -48,6 +70,15 @@ paperBtn.addEventListener ('click', () => {
     }
 
     updateScore();
+    
+    if (playerScore === 5) {
+        gameWinner = "player"
+        GameOver(gameWinner);
+    }
+    if (computerScore === 5) {
+        gameWinner = "computer"
+        GameOver(gameWinner);
+    }
 });
 
 scissorsBtn.addEventListener ('click', () => {
@@ -65,7 +96,29 @@ scissorsBtn.addEventListener ('click', () => {
     }
 
     updateScore();
+    
+    if (playerScore === 5) {
+        gameWinner = "player"
+        GameOver(gameWinner);
+    }
+    if (computerScore === 5) {
+        gameWinner = "computer"
+        GameOver(gameWinner);
+    }
 });
+
+resetBtn.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    textWinner.innerHTML = "Let's play again!";
+    textWinner.style.color = "black";
+    choiceWrapper.style.display = "flex";
+    reset.style.display = "none";
+    playerChoiceImg.src = "/img/question-player.png";
+    computerChoiceImg.src = "/img/question-computer.png";
+    updateScore();
+})
+
 
 // ##Functions:
 
@@ -121,13 +174,13 @@ function getRandomNumber(max) {
 function displayWinner(winner) {
     textWinner.innerText = `${winner}`
     if (winner === "player wins") {
-        textWinner.style.color = "green"
+        textWinner.style.color = "green";
     }
     if (winner === "computer wins") {
-        textWinner.style.color = "red"
+        textWinner.style.color = "red";
     }
     if (winner === "draw") {
-        textWinner.style.color = "yellow"
+        textWinner.style.color = "yellow";
     }
 }
 
@@ -138,29 +191,46 @@ function updateScore() {
 
 function displayPlayerImg(playerChoice) {
     if (playerChoice === 'rock') {
-        playerChoiceImg.src = "/img/rock.png"
-        playerChoiceImg.alt = "Rock."
+        playerChoiceImg.src = "/img/rock.png";
+        playerChoiceImg.alt = "Rock.";
     }
     if (playerChoice === 'paper') {
-        playerChoiceImg.src = "/img/paper.png"
-        playerChoiceImg.alt = "Paper."
+        playerChoiceImg.src = "/img/paper.png";
+        playerChoiceImg.alt = "Paper.";
     }
     if (playerChoice === 'scissors') {
-        playerChoiceImg.src = "/img/scissors.png"
-        playerChoiceImg.alt = "Scissors."  
+        playerChoiceImg.src = "/img/scissors.png";
+        playerChoiceImg.alt = "Scissors.";  
     }
 }
 function displayComputerImg(computerChoice) {
     if (computerChoice === 'rock') {
-        computerChoiceImg.src = "/img/rock.png"
-        computerChoiceImg.alt = "Rock."
+        computerChoiceImg.src = "/img/rock.png";
+        computerChoiceImg.alt = "Rock.";
     }
     if (computerChoice === 'paper') {
-        computerChoiceImg.src = "/img/paper.png"
-        playerChoiceImg.alt = "Paper."
+        computerChoiceImg.src = "/img/paper.png";
+        playerChoiceImg.alt = "Paper.";
     }
     if (computerChoice === 'scissors') {
-        computerChoiceImg.src = "/img/scissors.png"
-        playerChoiceImg.alt = "Scissors."  
+        computerChoiceImg.src = "/img/scissors.png";
+        playerChoiceImg.alt = "Scissors."; 
     }
+}
+
+function GameOver(gameWinner) {
+    textWinner.innerText = `${gameWinner} wins!`
+    textWinner.style.textTransform = "uppercase";
+    
+    if (gameWinner === "player") {
+        playerChoiceImg.src = "/img/win.png";
+        computerChoiceImg.src = "/img/game-over.png";
+    }
+    if (gameWinner === "computer") {
+        playerChoiceImg.src = "/img/game-over.png";
+        computerChoiceImg.src = "/img/win.png";
+    }
+
+    choiceWrapper.style.display = "none";
+    reset.style.display = "initial";
 }
