@@ -191,29 +191,29 @@ function updateScore() {
 
 function displayPlayerImg(playerChoice) {
     if (playerChoice === 'rock') {
-        playerChoiceImg.src = "/img/rock.png";
+        playerChoiceImg.src = "../img/rock.png";
         playerChoiceImg.alt = "Rock.";
     }
     if (playerChoice === 'paper') {
-        playerChoiceImg.src = "/img/paper.png";
+        playerChoiceImg.src = "../img/paper.png";
         playerChoiceImg.alt = "Paper.";
     }
     if (playerChoice === 'scissors') {
-        playerChoiceImg.src = "/img/scissors.png";
+        playerChoiceImg.src = "../img/scissors.png";
         playerChoiceImg.alt = "Scissors.";  
     }
 }
 function displayComputerImg(computerChoice) {
     if (computerChoice === 'rock') {
-        computerChoiceImg.src = "/img/rock.png";
+        computerChoiceImg.src = "../img/rock.png";
         computerChoiceImg.alt = "Rock.";
     }
     if (computerChoice === 'paper') {
-        computerChoiceImg.src = "/img/paper.png";
+        computerChoiceImg.src = "../img/paper.png";
         playerChoiceImg.alt = "Paper.";
     }
     if (computerChoice === 'scissors') {
-        computerChoiceImg.src = "/img/scissors.png";
+        computerChoiceImg.src = "../img/scissors.png";
         playerChoiceImg.alt = "Scissors."; 
     }
 }
@@ -223,12 +223,12 @@ function GameOver(gameWinner) {
     textWinner.style.textTransform = "uppercase";
     
     if (gameWinner === "player") {
-        playerChoiceImg.src = "/img/win.png";
-        computerChoiceImg.src = "/img/game-over.png";
+        playerChoiceImg.src = "../img/win.png";
+        computerChoiceImg.src = "../img/game-over.png";
     }
     if (gameWinner === "computer") {
-        playerChoiceImg.src = "/img/game-over.png";
-        computerChoiceImg.src = "/img/win.png";
+        playerChoiceImg.src = "../img/game-over.png";
+        computerChoiceImg.src = "../img/win.png";
     }
 
     choiceWrapper.style.display = "none";
