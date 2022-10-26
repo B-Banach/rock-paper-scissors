@@ -4,9 +4,9 @@ const computerScoreDisplay = document.querySelector(".computer-score");
 const textWinner = document.querySelector(".text-winner");
 const playerChoiceImg = document.querySelector("#player-img");
 const computerChoiceImg = document.querySelector("#computer-img");
-const rockBtn = document.querySelector(".rock-btn");
-const paperBtn = document.querySelector(".paper-btn");
-const scissorsBtn = document.querySelector(".scissors-btn");
+const btn = document.querySelectorAll(".btn");
+// const paperBtn = document.querySelector(".paper-btn");
+// const scissorsBtn = document.querySelector(".scissors-btn");
 const choiceWrapper = document.querySelector(".choice-wrapper");
 const reset = document.querySelector(".reset");
 const resetBtn = document.querySelector(".reset-btn");
@@ -28,84 +28,88 @@ textWinner.innerText = "Let's play!";
 textWinner.style.color = "black";
 reset.style.display = "none";
 
-rockBtn.addEventListener ('click', () => {
-    playerChoice = 'rock';
-    let winner = playRound(playerChoice);
+btn.forEach(element => {
+    element.addEventListener('click', () => {
 
-    displayPlayerImg(playerChoice); // changes image of the players choice 
-    displayWinner(winner);
-    
-    if (winner === 'player wins') {
-        playerScore++;
-    }
-    if (winner === 'computer wins') {
-        computerScore++;
-    }
-
-    updateScore();
-    
-    if (playerScore === 5) {
-        gameWinner = "player"
-        GameOver(gameWinner);
-    }
-    if (computerScore === 5) {
-        gameWinner = "computer"
-        GameOver(gameWinner);
-    }
+        playerChoice = `${element.id}`;
+        let winner = playRound(playerChoice);
         
-});
-
-paperBtn.addEventListener ('click', () => {
-    playerChoice = 'paper';
-    let winner = playRound(playerChoice);
-
-    displayPlayerImg(playerChoice); // changes image of the players choice 
-    displayWinner(winner);
+        displayPlayerImg(playerChoice); // changes image of the players choice 
+        displayWinner(winner);
+        
+        if (winner === 'player wins') {
+            playerScore++;
+        }
+        if (winner === 'computer wins') {
+            computerScore++;
+        }
+        
+        updateScore();
+        
+        if (playerScore === 5) {
+            gameWinner = "player"
+            GameOver(gameWinner);
+        }
+        if (computerScore === 5) {
+            gameWinner = "computer"
+            GameOver(gameWinner);
+        }
+        
+        
+    });
+})
     
-    if (winner === 'player wins') {
-        playerScore++;
-    }
-    if (winner === 'computer wins') {
-        computerScore++;
-    }
+// paperBtn.addEventListener ('click', () => {
+//     playerChoice = 'paper';
+//     let winner = playRound(playerChoice);
 
-    updateScore();
+//     displayPlayerImg(playerChoice); // changes image of the players choice 
+//     displayWinner(winner);
     
-    if (playerScore === 5) {
-        gameWinner = "player"
-        GameOver(gameWinner);
-    }
-    if (computerScore === 5) {
-        gameWinner = "computer"
-        GameOver(gameWinner);
-    }
-});
+//     if (winner === 'player wins') {
+//         playerScore++;
+//     }
+//     if (winner === 'computer wins') {
+//         computerScore++;
+//     }
 
-scissorsBtn.addEventListener ('click', () => {
-    playerChoice = 'scissors';
-    let winner = playRound(playerChoice);
-
-    displayPlayerImg(playerChoice); // changes image of the players choice 
-    displayWinner(winner);
+//     updateScore();
     
-    if (winner === 'player wins') {
-        playerScore++;
-    }
-    if (winner === 'computer wins') {
-        computerScore++;
-    }
+//     if (playerScore === 5) {
+//         gameWinner = "player"
+//         GameOver(gameWinner);
+//     }
+//     if (computerScore === 5) {
+//         gameWinner = "computer"
+//         GameOver(gameWinner);
+//     }
+// });
 
-    updateScore();
+// scissorsBtn.addEventListener ('click', () => {
+//     playerChoice = 'scissors';
+//     let winner = playRound(playerChoice);
+
+//     displayPlayerImg(playerChoice); // changes image of the players choice 
+//     displayWinner(winner);
     
-    if (playerScore === 5) {
-        gameWinner = "player"
-        GameOver(gameWinner);
-    }
-    if (computerScore === 5) {
-        gameWinner = "computer"
-        GameOver(gameWinner);
-    }
-});
+//     if (winner === 'player wins') {
+//         playerScore++;
+//     }
+//     if (winner === 'computer wins') {
+//         computerScore++;
+//     }
+
+//     updateScore();
+    
+//     if (playerScore === 5) {
+//         gameWinner = "player"
+//         GameOver(gameWinner);
+//     }
+//     if (computerScore === 5) {
+//         gameWinner = "computer"
+//         GameOver(gameWinner);
+//     }
+// });
 
 resetBtn.addEventListener('click', () => {
     playerScore = 0;
